@@ -34,7 +34,6 @@ function Table({ results, maker, taker }) {
 
         orders.forEach(order => {
           if((order.makerToken === String(maker.address).toLowerCase()) || (order.makerToken === String(taker.address).toLowerCase())) {
-            console.log('1111111111');
             let price = order.takerAmount / order.makerAmount;
             let total = order.makerAmount * price;
             let quantity = order.remainingFillableTakerAmount / price;
@@ -48,7 +47,6 @@ function Table({ results, maker, taker }) {
           } 
 
           if((order.takerToken === String(maker.address).toLowerCase()) || (order.takerToken === String(taker.address).toLowerCase())) {
-            console.log('22222222222')
             let price = Number(order.takerAmount / order.makerAmount).toFixed(2)
             let total = order.makerAmount * price;
             let quantity = order.remainingFillableTakerAmount / price;
@@ -65,23 +63,23 @@ function Table({ results, maker, taker }) {
     }, [orders])
 
     useEffect(() => {
-      if(bids.length > 10) {
+      if(bids.length % 10 === 0) {
         setBidsTableData(bids.slice(bidsRange1, bidsRange2));
         setBidsRange1(prev => prev + 10);
         setBidsRange2(prev => prev + 10)
       }
-      if(asks.length > 10) {
+      if(asks.length % 10 === 0) {
         setAsksTableData(asks.slice(asksRange1, asksRange2));
         setAsksRange1(prev => prev + 10);
         setAsksRange2(prev => prev + 10);
       }
-    }, [bids, asks])  
+    }, [JSON.stringify(bids), JSON.stringify(asks)])  
 
-    console.log('asks', asks.length)
-    console.log('bids', bids.length)
+    // console.log('asks', asks.length)
+    // console.log('bids', bids.length)
     
-    console.log('asks Table Data', asksTableData.length)
-    console.log('bids Table Data', bidsTableData.length)
+    // console.log('asks Table Data', asksTableData.length)
+    // console.log('bids Table Data', bidsTableData.length)
 
     // console.log('Bids Range-1', bidsRange1)
     // console.log('Bids range-2', bidsRange2)

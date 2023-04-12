@@ -11,10 +11,6 @@ export default function Home() {
   
   const endpoint = `wss://api.0x.org/orderbook/v1`;
   
-  const fetchUpdate = async () => {
-    // const url = `https://api.0x.org/orderbook/v1?quoteToken=${quoteToken.address}&baseToken=${baseToken.address}&perPage=1000`;
-
-  }
   useEffect(() => {
     if(maker && taker) {
       const conn = new WebSocket(endpoint);
@@ -52,10 +48,10 @@ export default function Home() {
   }, [maker, taker])
 
 
-  console.log('maker', maker?.abbreviation, String(maker?.address).toLowerCase());
-  console.log('taker', taker?.abbreviation, String(taker?.address).toLowerCase());
+  // console.log('maker', maker?.abbreviation, String(maker?.address).toLowerCase());
+  // console.log('taker', taker?.abbreviation, String(taker?.address).toLowerCase());
 
-  console.log('results', results)
+  // console.log('results', results)
 
   return (
     <>

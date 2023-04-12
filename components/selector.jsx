@@ -26,8 +26,6 @@ function Selector({ setMaker, setTaker }) {
   const [transform, setTransform] = useState(false);
   const [displaySearch, setDisplaySearch] = useState(null);
   const [coinsListData, setCoinsListData] = useState(coinsList);
-  const [currPay, setCurrPay] = useState(null);
-  const [currReceive, setCurrReceive] = useState(null);
   const [type, setType] = useState(null);
   const [active, setActive] = useState(false);
   const [type2Data, setType2Data] = useState(initialType2Data);
